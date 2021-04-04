@@ -1,5 +1,5 @@
 "use strict"
-const BMap = require('BijectiveMap')
+const BMap = require('./bijectiveMap.js')
 const assert = require('assert').strict;
 
 assert.throws(
@@ -31,6 +31,12 @@ const bmap = new BMap([
 
 assert.equal(bmap.get('foo'), 1)
 assert.equal(bmap.rget(1), 'foo')
+assert.equal(bmap.getKeyOf(1), 'foo')
+
+assert.ok( bmap.has('foo') )
+assert.ok( bmap.exists(1) )
+assert.ok( ! bmap.has('cthulhu') )
+assert.ok( ! bmap.exists(666) )
 
 assert.throws(
   () => {
@@ -70,3 +76,6 @@ bmap.delete('buz')
 
 assert.equal(bmap.size, 2)
 
+bmap.clear()
+
+assert.equal(bmap.size, 0)

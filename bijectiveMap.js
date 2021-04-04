@@ -49,6 +49,14 @@ class BijectiveMap extends Map {
   rget (key) {
     return this.reverseMap.get(key)
   }
+
+  getKeyOf (value) {
+    return this.reverseMap.get(value)
+  }
+
+  exists (value) {
+    return this.reverseMap.has(value)
+  }
 }
 
 module.exports = BijectiveMap
